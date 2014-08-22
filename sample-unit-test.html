@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head lang="ko">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>[Sample] - Angularjs custom navi directive</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <style type="text/css">
+      body {
+        font-family: 'Nanum Gothic', dotum, verdana, Arial, applegothic, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+      }
+      a {text-decoration:none;}
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" ng-controller="AppController">
+      <div class="navigation" ng-controller="NaviController">
+
+        <!-- (s)drtv-drtvDepth1Navi -->
+        <div class="drtvDepth1Navi" menu-index="index" menu-datas="menus" menu-click="notifyClickMenu(event, index, menu)" ></div>
+        <!-- (e)drtv-drtvDepth1Navi -->
+      </div>
+      <button class="btn" ng-click="clickButton( 2 )">button</button>
+    </div>
+
+    <script src="js/lib/jquery-1.7.0.min.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-mocks.js"></script>
+    <script src="js/directive/directives.js"></script>
+    <script src="js/directive/drtvDepth1Navi.js"></script>
+    <script src="js/controller/AppController.js"></script>
+    <script>
+      (function($) {
+        $(document).ready(function() {
+          var app = angular.bootstrap( $('.wrap').get(0), [
+            'controllers',
+            'directives'
+          ]);
+        });
+      })(jQuery);
+    </script>
+  </body>
+  
+</html>
